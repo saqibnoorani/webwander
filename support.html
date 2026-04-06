@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebWander — Support</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #0e0e14;
+      color: #d4d4d8;
+      line-height: 1.7;
+      padding: 48px 24px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #e5e5e5;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #e5e5e5, #a0a0a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: #a1a1aa;
+    }
+
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #a1a1aa;
+    }
+
+    strong {
+      color: #d4d4d8;
+    }
+
+    code {
+      background: rgba(139, 92, 246, 0.1);
+      color: #c4b5fd;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e5e5e5;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      margin-bottom: 0;
+    }
+
+    .highlight {
+      background: rgba(74, 222, 128, 0.08);
+      border-color: rgba(74, 222, 128, 0.15);
+    }
+
+    .warning {
+      background: rgba(251, 191, 36, 0.08);
+      border-color: rgba(251, 191, 36, 0.15);
+    }
+
+    .info {
+      background: rgba(139, 92, 246, 0.08);
+      border-color: rgba(139, 92, 246, 0.15);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 36px 0;
+    }
+
+    a {
+      color: #8b5cf6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 10px 24px;
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: white;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.25);
+      text-align: center;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.35);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Support</h1>
+    <p class="subtitle">WebWander Chrome Extension &mdash; Help &amp; Troubleshooting</p>
+
+    <p>
+      Need help with WebWander? You're in the right place. Below you'll find answers to common
+      questions and how to get in touch if you need further assistance.
+    </p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="card">
+      <h3>How do I start stumbling?</h3>
+      <p style="margin-bottom: 0;">
+        Click the WebWander icon in your Chrome toolbar and hit the <strong>STUMBLE</strong> button.
+        You can also press <code>Alt+S</code> from any tab to stumble instantly.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>How do I change my interests?</h3>
+      <p style="margin-bottom: 0;">
+        Open the WebWander popup and click <strong>"Update interests"</strong> at the bottom of the
+        Home tab. This takes you back to the onboarding screen where you can modify your topic
+        selections and adventurousness level.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>What does the adventurousness slider do?</h3>
+      <p style="margin-bottom: 0;">
+        It controls the balance between sites that match your interests closely and sites that are
+        outside your usual topics. Low adventurousness = more of what you love. High adventurousness
+        = more variety and surprise.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Why don't I see the floating toolbar?</h3>
+      <p style="margin-bottom: 0;">
+        The toolbar only appears on pages you navigate to by clicking <strong>STUMBLE</strong> or
+        pressing <code>Alt+S</code>. It does not appear on pages you visit manually. If you
+        stumbled to a site and don't see the toolbar, try reloading the page. Some sites with strict
+        security policies may block the toolbar from appearing.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>How do I save a site to a collection?</h3>
+      <p style="margin-bottom: 0;">
+        When the floating toolbar is visible, click the <strong>Save</strong> button (or press
+        <code>S</code>). A panel will appear where you can choose an existing collection or create
+        a new one. You can also view your saved collections from the popup's Collections tab.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>How do I earn badges?</h3>
+      <p style="margin-bottom: 0;">
+        Badges are earned automatically as you use WebWander. Discover sites, save favorites,
+        maintain streaks, and explore different topics to unlock all 14 badges. Check the
+        <strong>Badges</strong> tab in the popup to see your progress.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>How do I delete all my data?</h3>
+      <p style="margin-bottom: 0;">
+        You can either uninstall the extension (which removes all local data) or go to
+        <code>chrome://extensions</code>, find WebWander, click details, and select "Clear data."
+        See our <a href="index.html">Privacy Policy</a> for full details.
+      </p>
+    </div>
+
+    <h2>Keyboard Shortcuts</h2>
+
+    <div class="card highlight">
+      <h3>Quick reference</h3>
+      <ul>
+        <li><strong>Alt+S</strong> &mdash; Stumble to a new site (works from any tab)</li>
+        <li><strong>Arrow Up (↑)</strong> &mdash; Like the current site</li>
+        <li><strong>Arrow Down (↓)</strong> &mdash; Dislike the current site</li>
+        <li><strong>Arrow Right (→)</strong> &mdash; Stumble to the next site</li>
+        <li><strong>S</strong> &mdash; Save to a collection</li>
+      </ul>
+    </div>
+
+    <h2>Known Issues</h2>
+
+    <div class="card warning">
+      <h3>Things we're aware of</h3>
+      <ul>
+        <li>Some websites with strict Content Security Policies may prevent the floating toolbar from appearing.</li>
+        <li>The toolbar does not appear on Chrome internal pages (<code>chrome://</code>, <code>chrome-extension://</code>, or the Chrome Web Store).</li>
+        <li>If you've just installed the extension, you may need to reload any open tabs for the keyboard shortcut <code>Alt+S</code> to work.</li>
+      </ul>
+    </div>
+
+    <h2>Report a Bug</h2>
+
+    <p>
+      Found a bug or something not working as expected? Please let us know by opening an issue on
+      GitHub. Include as much detail as you can &mdash; what you expected vs. what happened, your
+      Chrome version, and any error messages you see.
+    </p>
+
+    <a class="btn" href="https://github.com/saqibnoorani/webwander/issues/new" target="_blank" rel="noopener">
+      Report a Bug on GitHub
+    </a>
+
+    <h2>Feature Requests</h2>
+
+    <p>
+      Have an idea for a feature that would make WebWander better? We'd love to hear it! Open a
+      feature request on GitHub and describe what you'd like to see.
+    </p>
+
+    <a class="btn" href="https://github.com/saqibnoorani/webwander/issues/new" target="_blank" rel="noopener">
+      Request a Feature
+    </a>
+
+    <h2>Contact</h2>
+
+    <p>
+      For general questions, feedback, or data deletion requests, please open an issue on our
+      <a href="https://github.com/saqibnoorani/webwander" target="_blank" rel="noopener">GitHub repository</a>.
+    </p>
+
+    <hr>
+
+    <div class="card info">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="https://github.com/saqibnoorani/webwander" target="_blank" rel="noopener">GitHub Repository</a></li>
+        <li><a href="https://github.com/saqibnoorani/webwander/issues" target="_blank" rel="noopener">All Issues &amp; Feature Requests</a></li>
+        <li><a href="index.html">Privacy Policy</a></li>
+        <li><a href="homepage.html">Homepage</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      &copy; 2026 WebWander. Open source and free forever.
+      <br>
+      <a href="https://github.com/saqibnoorani/webwander" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;&middot;&nbsp;
+      <a href="index.html">Privacy Policy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="homepage.html">Homepage</a>
+    </footer>
+  </div>
+</body>
+</html>
