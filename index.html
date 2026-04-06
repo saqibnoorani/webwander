@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebWander — Privacy Policy</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #0e0e14;
+      color: #d4d4d8;
+      line-height: 1.7;
+      padding: 48px 24px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #e5e5e5;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #e5e5e5, #a0a0a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: #a1a1aa;
+    }
+
+    ul {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #a1a1aa;
+    }
+
+    strong {
+      color: #d4d4d8;
+    }
+
+    code {
+      background: rgba(139, 92, 246, 0.1);
+      color: #c4b5fd;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e5e5e5;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      margin-bottom: 0;
+    }
+
+    .highlight {
+      background: rgba(74, 222, 128, 0.08);
+      border-color: rgba(74, 222, 128, 0.15);
+    }
+
+    .warning {
+      background: rgba(251, 191, 36, 0.08);
+      border-color: rgba(251, 191, 36, 0.15);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 36px 0;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    a {
+      color: #8b5cf6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">WebWander Chrome Extension &mdash; Last updated: April 6, 2026</p>
+
+    <p>
+      WebWander is built with privacy as a core principle. We believe you should be able to
+      discover amazing websites without sacrificing your personal information. This policy
+      explains exactly what data we handle, how we handle it, and how you stay in control.
+    </p>
+
+    <h2>What Data We Collect</h2>
+
+    <div class="card">
+      <h3>Data stored by the extension</h3>
+      <ul>
+        <li><strong>Your selected interests</strong> &mdash; The topics you choose during onboarding (e.g., Science, Design, Tech) are used to personalize your recommendations.</li>
+        <li><strong>Adventurousness setting</strong> &mdash; A single number (0&ndash;100) that controls how varied your recommendations are.</li>
+        <li><strong>Ratings (likes and dislikes)</strong> &mdash; When you like or dislike a discovered site, that rating is stored so we can improve future suggestions.</li>
+        <li><strong>Browsing history within the extension</strong> &mdash; URLs of sites you have stumbled upon through WebWander are recorded to avoid showing you the same site twice.</li>
+        <li><strong>Collections</strong> &mdash; Any named collections of saved sites you create.</li>
+        <li><strong>Usage statistics</strong> &mdash; Total sites discovered, sites saved, streak days, and topics explored. These are used to calculate badges and streaks within the extension.</li>
+        <li><strong>Anonymous user ID</strong> &mdash; A randomly generated UUID (not tied to any personal information) used to associate your preferences with our recommendation API.</li>
+      </ul>
+    </div>
+
+    <h2>What We Do NOT Collect</h2>
+
+    <div class="card highlight">
+      <h3>We never collect any of the following</h3>
+      <ul>
+        <li>Your name, email address, or any personally identifiable information</li>
+        <li>Your general browsing history or activity outside of WebWander</li>
+        <li>Cookies or tracking pixels</li>
+        <li>Data from any websites you visit (other than the URL when you rate a stumbled site)</li>
+        <li>Keystroke data, form inputs, or page content</li>
+        <li>Location data</li>
+      </ul>
+    </div>
+
+    <p>
+      WebWander does <strong>not</strong> track you across the web. The content script that
+      displays the floating toolbar only activates on pages you navigate to via the Stumble
+      button, and it does not read or transmit any page content.
+    </p>
+
+    <h2>How Data Is Stored</h2>
+
+    <p>Your data is stored in two places:</p>
+
+    <ul>
+      <li>
+        <strong>Locally in your browser</strong> &mdash; Preferences, ratings, history, and
+        collections are stored using Chrome's built-in <code>chrome.storage</code> API.
+        Preferences sync across your Chrome devices via <code>chrome.storage.sync</code>;
+        ratings, history, and collections use <code>chrome.storage.local</code> and stay on
+        your current device.
+      </li>
+      <li>
+        <strong>Our recommendation API</strong> &mdash; Your anonymous user ID, selected
+        interests, adventurousness setting, and site ratings are sent to our API server to
+        generate personalized recommendations. This data is associated only with your random
+        UUID and cannot be linked to your identity.
+      </li>
+    </ul>
+
+    <h2>How to Delete Your Data</h2>
+
+    <div class="card warning">
+      <h3>You have two options to remove all WebWander data</h3>
+      <ul>
+        <li>
+          <strong>Uninstall the extension</strong> &mdash; Removing WebWander from Chrome
+          automatically deletes all locally stored data (preferences, ratings, history,
+          collections, and statistics).
+        </li>
+        <li>
+          <strong>Clear extension data manually</strong> &mdash; Go to
+          <code>chrome://extensions</code>, find WebWander, click the details button, and
+          select "Clear data" (under Site settings / Storage). This removes all local data
+          without uninstalling.
+        </li>
+      </ul>
+      <p style="margin-top: 12px; margin-bottom: 0;">
+        Note: Clearing local data does not automatically delete data stored on our API server.
+        If you would like your server-side data removed, please contact us and we will delete
+        all records associated with your anonymous user ID.
+      </p>
+    </div>
+
+    <h2>Third-Party Services</h2>
+
+    <p>
+      WebWander communicates with our own API server to fetch site recommendations and sync
+      ratings. We do not share your data with any third-party analytics, advertising, or
+      tracking services. We do not sell your data to anyone.
+    </p>
+
+    <h2>Permissions Explained</h2>
+
+    <ul>
+      <li><strong>storage</strong> &mdash; Required to save your preferences, ratings, collections, and statistics locally in your browser.</li>
+      <li><strong>tabs</strong> and <strong>activeTab</strong> &mdash; Required to navigate you to discovered websites when you click Stumble.</li>
+      <li><strong>scripting</strong> &mdash; Required to inject the floating toolbar overlay on pages you stumble upon.</li>
+      <li><strong>host_permissions (&lt;all_urls&gt;)</strong> &mdash; Required so the toolbar overlay can appear on any website you discover through WebWander. The extension does not access or read content on any other pages.</li>
+    </ul>
+
+    <h2>Changes to This Policy</h2>
+
+    <p>
+      If we make material changes to this privacy policy, we will update the "Last updated"
+      date at the top of this page. We encourage you to review this policy periodically.
+    </p>
+
+    <h2>Contact</h2>
+
+    <p>
+      If you have questions about this privacy policy or want to request deletion of your
+      server-side data, please open an issue on our
+      <a href="https://github.com/saqibnoorani/webwander" target="_blank" rel="noopener">GitHub repository</a>
+      or contact us at saqibnoorani@gmail.com.
+    </p>
+
+    <footer>
+      &copy; 2026 WebWander. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
