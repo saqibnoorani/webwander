@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stumble Path — WebWander</title>
+  <meta property="og:title" content="Stumble Path — WebWander">
+  <meta property="og:description" content="Check out this curated path of web discoveries">
+  <meta property="og:type" content="website">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #0e0e14;
+      color: #d4d4d8;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 26px;
+      color: white;
+      box-shadow: 0 6px 24px rgba(139, 92, 246, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #e5e5e5, #a0a0a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+
+    .header .meta {
+      font-size: 14px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .header .site-count {
+      color: #a78bfa;
+      font-weight: 600;
+    }
+
+    /* Path timeline */
+    .path-list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Connecting line */
+    .path-list::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(to bottom, #8b5cf6, rgba(139,92,246,0.1));
+      border-radius: 1px;
+    }
+
+    .path-item {
+      display: flex;
+      gap: 16px;
+      padding: 12px 0;
+      position: relative;
+    }
+
+    /* Position dot */
+    .position {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a2e;
+      border: 2px solid rgba(139,92,246,0.3);
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 700;
+      color: #a78bfa;
+      z-index: 1;
+      transition: all 0.2s;
+    }
+
+    .path-item:hover .position {
+      background: rgba(139,92,246,0.15);
+      border-color: #8b5cf6;
+      box-shadow: 0 0 16px rgba(139,92,246,0.3);
+    }
+
+    /* Site card */
+    .site-card {
+      flex: 1;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 16px 20px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: block;
+    }
+
+    .site-card:hover {
+      background: rgba(139,92,246,0.06);
+      border-color: rgba(139,92,246,0.2);
+      transform: translateX(4px);
+    }
+
+    .site-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #e5e5e5;
+      margin-bottom: 4px;
+    }
+
+    .site-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+
+    .site-url {
+      font-size: 11px;
+      color: rgba(139,92,246,0.6);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .cat-tag {
+      padding: 3px 10px;
+      background: rgba(139,92,246,0.1);
+      color: #a78bfa;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* States */
+    .loading, .error-state {
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .loading-text {
+      color: rgba(255,255,255,0.3);
+      font-size: 16px;
+    }
+
+    .loading-spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid rgba(139,92,246,0.2);
+      border-top-color: #8b5cf6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .error-state h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #e5e5e5;
+      margin-bottom: 8px;
+    }
+
+    .error-state p {
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 24px;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      margin-top: 48px;
+      padding: 32px 24px;
+      background: rgba(139,92,246,0.04);
+      border: 1px solid rgba(139,92,246,0.1);
+      border-radius: 16px;
+    }
+
+    .cta-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 22px;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .cta-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #e5e5e5;
+      margin-bottom: 6px;
+    }
+
+    .cta-section p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: white;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(139,92,246,0.3);
+      transition: all 0.15s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(139,92,246,0.4);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">W</div>
+      <div id="header-content">
+        <div class="loading">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">Loading path...</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content"></div>
+
+    <div class="cta-section">
+      <div class="cta-logo">W</div>
+      <h2>Discover your own path</h2>
+      <p>Install WebWander to stumble upon amazing websites and create your own shareable paths.</p>
+      <a class="cta-btn" href="https://chromewebstore.google.com" target="_blank" rel="noopener">
+        Add to Chrome &mdash; It's Free
+      </a>
+    </div>
+
+    <footer>
+      <a href="https://github.com/saqibnoorani/webwander" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;&middot;&nbsp;
+      <a href="../index.html">Privacy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="../homepage.html">About</a>
+    </footer>
+  </div>
+
+  <script>
+    const API_BASE = 'https://webwander-api.saqibnoorani.workers.dev'
+    const pathId = window.location.hash.slice(1)
+
+    const headerEl = document.getElementById('header-content')
+    const contentEl = document.getElementById('content')
+
+    if (!pathId) {
+      showError('No path specified', 'Share a link with a path ID to view it.')
+    } else {
+      loadPath(pathId)
+    }
+
+    async function loadPath(id) {
+      try {
+        const res = await fetch(`${API_BASE}/api/paths/${id}`)
+        if (!res.ok) {
+          if (res.status === 404) {
+            showError('Path not found', 'This path may have been deleted or the link is incorrect.')
+            return
+          }
+          throw new Error('Failed to load path')
+        }
+
+        const data = await res.json()
+        renderPath(data)
+      } catch (err) {
+        showError('Something went wrong', 'Could not load this stumble path. Please try again later.')
+      }
+    }
+
+    function renderPath(data) {
+      const { path, sites } = data
+      const date = new Date(path.createdAt).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric'
+      })
+
+      headerEl.innerHTML = `
+        <h1>${escapeHtml(path.title)}</h1>
+        <div class="meta">
+          <span class="site-count">${path.siteCount} sites</span> &middot; ${date}
+        </div>
+      `
+
+      let html = '<div class="path-list">'
+      sites.forEach((site, i) => {
+        const domain = new URL(site.url).hostname.replace('www.', '')
+        const cats = site.categories.map(c => `<span class="cat-tag">${escapeHtml(c)}</span>`).join('')
+
+        html += `
+          <div class="path-item">
+            <div class="position">${i + 1}</div>
+            <a class="site-card" href="${escapeHtml(site.url)}" target="_blank" rel="noopener">
+              <div class="site-title">${escapeHtml(site.title)}</div>
+              <span class="site-url">${escapeHtml(domain)}</span>
+              <div class="site-desc">${escapeHtml(site.description)}</div>
+              <div class="categories">${cats}</div>
+            </a>
+          </div>
+        `
+      })
+      html += '</div>'
+
+      contentEl.innerHTML = html
+      document.title = `${path.title} — Stumble Path — WebWander`
+    }
+
+    function showError(title, message) {
+      headerEl.innerHTML = ''
+      contentEl.innerHTML = `
+        <div class="error-state">
+          <h2>${escapeHtml(title)}</h2>
+          <p>${escapeHtml(message)}</p>
+        </div>
+      `
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div')
+      div.textContent = str
+      return div.innerHTML
+    }
+  </script>
+</body>
+</html>
